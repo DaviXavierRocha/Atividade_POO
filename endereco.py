@@ -23,7 +23,7 @@ class Endereco:
             self.cep = cep # nesse caso optei usar o salvamento sem hifen mesmo
         
         def verificador_numero(self, numero):
-            if numero is not numero.isdigit():
+            if numero.isdigit() == False:
                 raise ValueError('Aí voce ta de brincadeira')
             self.numero = numero
 
@@ -34,18 +34,39 @@ class Endereco:
     def __str__(self):
         return f"{self.logradouro}, {self.numero}, {self.bairro}, {self.cep}, {self.cidade} - {self.estado}"
 
-    def trocar_endereco(self):
+    def trocar_endereco_completo(self):
         print('Mudando seu endereço: ')
         self.logradouro = input('Digite seu logradouro: ')
         self.bairro = input('Digite seu Bairro: ')
-        self.numero = int(input('Digite seu Numero: '))
+        self.numero = input('Digite seu Numero: ')
         self.complemento = input('Digite seu Complemento: ')
-        self.cep = (int(input('Digite seu Cep: ')))
+        self.cep = (input('Digite seu Cep: '))
         self.estado(input("Digite seu estado: "))
         self.cidade = input('Digite sua Cidade: ')
 
+    def trocar_endereco_parcial(self, operador):
+        if operador == 1:
+            self.logradouro = input('Digite seu logradouro: ')
+        elif operador == 2:
+            self.bairro = input('Digite seu Bairro: ')
+        elif operador == 3:
+            self.numero = input('Digite seu Numero: ')
+        elif operador == 4:
+            self.complemento = input('Digite seu Complemento: ')
+        elif operador ==5:
+            self.cep = (input('Digite seu Cep: '))
+        elif operador == 6:
+            self.estado(input("Digite seu estado: "))
+        elif operador == 7:
+            self.cidade = input('Digite sua Cidade: ')
+        else:
+            print("Saindo")
 
-endereco1=Endereco('Rua maceio', 'Dom Lustosa', 72, 'Fortaleza', 'CE', 12345678)
+
+
+
+#endereco1=Endereco('Rua maceio', 'Dom Lustosa', '72', 'Fortaleza', 'CE', '12345678')
+#print(endereco1)
 
 #endereco1.trocar_endereco()
 
